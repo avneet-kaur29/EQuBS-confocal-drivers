@@ -1,7 +1,13 @@
-from timetagger import TimeTagger
+from TimeTagger import createTimeTagger, freeTimeTagger, TimeTagger, Resolution
 import numpy as np
 import time
 
+
 class tt20():
-    def __init__(self, ip):
-        
+    def __init__(self, ip, serial):
+        # createTimeTagger([serial='', resolution=Resolution.Standard]) - can specify serial number to connect to specific
+        # device and specify resolution from Resolution class
+        self.tt = createTimeTagger(serial)
+        #check to see if need to use super()._init_() to call superclass of parent class
+        #initialize empty list for channels
+        self.channels = []
